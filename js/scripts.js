@@ -17,11 +17,12 @@ export let scripts = {
             let movieId = test.id;
             let movieName = test.original_title;
             let movieImg = test.poster_path;
-            console.log("ID of latest movie in DB: " + movieId);
+            console.log("ID of movie in DB: " + movieId);
             displayMovieData(movieId, movieName, movieImg);
           } else {
-            console.log("BAD ID NO DATA");
-            console.log(test.status_code);
+              console.log("BAD ID NO DATA");
+              console.log(test.status_code);
+              findMovie(displayMovieData);
           }
       });
     })

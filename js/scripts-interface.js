@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   function displayMovieData(movieId, movieName, movieImg) {
     $('#displayMovieId').html(`<p>Your movie id is: ${movieId}`);
-    $('#displayMovieName').html(`<p>Your movie id is: ${movieName}`);
+    $('#displayMovieName').html(`<p>Your movie name is: ${movieName}`);
     $('#displayImage').html(`<img src="http://image.tmdb.org/t/p/w185/${movieImg}">`);
 
   }
