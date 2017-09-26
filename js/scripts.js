@@ -5,8 +5,6 @@ export let scripts = {
 
 
   findMovie: function(displayMovieData) {
-
-
     let min = Math.ceil(65);
     let max = Math.floor(45000);
     let result =  Math.floor((Math.random() * (max - min)) + min);
@@ -14,11 +12,17 @@ export let scripts = {
     .then((res) => {
       res.json().then((test) => {
         console.log(test);
-        let movieId = test.id;
-        let movieName = test.original_title;
-
-        console.log("ID of latest movie in DB: " + movieId);
-        displayMovieData(movieId, movieName);
+          if(res.status === 200){
+            console.log("good catch");
+            let movieId = test.id;
+            let movieName = test.original_title;
+            let movieImg = test.poster_path;
+            console.log("ID of latest movie in DB: " + movieId);
+            displayMovieData(movieId, movieName, movieImg);
+          } else {
+            console.log("BAD ID NO DATA");
+            console.log(test.status_code);
+          }
       });
     })
     .catch(console.log);
